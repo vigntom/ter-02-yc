@@ -8,20 +8,14 @@ variable "vm_db_zone" {
 
 variable "vm_db_cidr" {
   type        = list(string)
-  default     = ["10.0.2.0/24"]
+  default     = ["10.0.3.0/24"]
   description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
 
 variable "vm_db_vpc_name" {
   type        = string
-  default     = "develop_db"
+  default     = "develop-db"
   description = "VPC network & subnet name"
-}
-
-variable "vm_db_family" {
-  type    = string
-  default = "ubuntu-2004-lts"
-  description = "https://cloud.yandex.com/en/marketplace?tab=software&categories=os"
 }
 
 variable "vm_db_name" {
