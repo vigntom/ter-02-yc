@@ -12,6 +12,7 @@ resource "yandex_vpc_subnet" "develop" {
 data "yandex_compute_image" "ubuntu" {
   family = var.vm_web_family
 }
+
 resource "yandex_compute_instance" "platform" {
   name        = var.vm_web_name
   platform_id = var.vm_web_platform_id
