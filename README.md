@@ -82,4 +82,30 @@ fqdn для каждой из ВМ в удобном лично для вас ф
 1. Вместо использования трёх переменных  ".._cores",".._memory",".._core_fraction" в блоке
 resources {...}, объедините их в единую map-переменную **vms_resources** и  внутри неё конфиги обеих ВМ в виде вложенного map.
 
+### Задание 7*
+
+Изучите содержимое файла console.tf. Откройте terraform console, выполните следующие задания: 
+
+1. Напишите, какой командой можно отобразить **второй** элемент списка test_list.
+
+Ответ: Команда `local.test_list[1]`, результат "staging"
+
+2. Найдите длину списка test_list с помощью функции length(<имя переменной>).
+
+Ответ: Команда`length(local.test_list)`, результат 3
+
+3. Напишите, какой командой можно отобразить значение ключа admin из map test_map.
+
+Ответ: keys(local.test_map)[0], Ответ "admin". Если я правильно понял что делать. 
+
+4. Напишите interpolation-выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map, servers и функцию length() для подстановки значений.
+
+Ответ: "${local.test_map.admin} is admin for ${local.test_list[2]} server based on OS ${local.servers.production.image} with ${local.servers.production.cpu} vcpu, ${local.servers.production.ram} ram and ${length(local.servers.production.disks)} virtual disks"
+
+**Примечание**: если не догадаетесь как вычленить слово "admin", погуглите: "terraform get keys of map"
+
+В качестве решения предоставьте необходимые команды и их вывод.
+
+![Task 7 console result](./images/console-7.jpg)
+
 
