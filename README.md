@@ -152,3 +152,12 @@ test = [
 Для проверки уберите внешний IP адрес (nat=false) у ваших ВМ и проверьте доступ в интернет с ВМ, подключившись к ней через serial console.
 Для подключения предварительно через ssh измените пароль пользователя: ```sudo passwd ubuntu```
 
+Финальный код в папке [src](./src):
+
+  1. [main.tf](./src/main.tf)
+  1. [variables.tf](./src/variables.tf)
+  1. [vms_platform](./src/vms_platform.tf)
+  1. [output](./src/outputs.tf)
+  1. [locals](./src/locals.tf)
+  1. [test](./src/test.tf)
+
