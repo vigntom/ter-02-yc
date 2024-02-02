@@ -18,11 +18,13 @@ variable "vm_db_vpc_name" {
   description = "VPC network & subnet name"
 }
 
+/*
 variable "vm_db_name" {
   type    = string
   default = "netology-develop-platform-db"
   description = "Compute instance name"
 }
+*/
 
 variable "vm_db_platform_id" {
   type    = string
@@ -30,6 +32,7 @@ variable "vm_db_platform_id" {
   description = "https://cloud.yandex.com/en/docs/compute/concepts/vm-platforms"
 }
 
+/*
 variable "vm_db_cores" {
   type    = number
   default = 2
@@ -47,6 +50,7 @@ variable "vm_db_core_fraction" {
   default = 20
   description = "https://cloud.yandex.com/en/docs/compute/concepts/performance-levels"
 }
+*/
 
 variable "vm_db_is_preemptable" {
   type    = bool
@@ -54,8 +58,10 @@ variable "vm_db_is_preemptable" {
   description = "https://cloud.yandex.com/en/docs/compute/concepts/preemptible-vm"
 }
 
+/*
 variable "vm_db_root_login" {
   type    = string
   default = "ubuntu"
   description = "Login name"
 }
+*/

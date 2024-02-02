@@ -17,6 +17,39 @@ variable "roles" {
   description = "Set of available roles"
 }
 
+variable "vms_resources" {
+  type = map(map(string))
+  default = {
+    web = {
+      cores = 2,
+      memory = 1,
+      core_fraction = 5
+    },
+    db = {
+      cores = 2,
+      memory = 2,
+      core_fraction = 20
+    }
+  }
+
+  description = "VMS resources"
+}
+
+variable "default_login" {
+  type = string
+  default = "ubuntu"
+  description = "Default root login"
+}
+
+variable "metadata" {
+  type = object({ serial-port-enable = number, ssh-keys = string })
+  default = {
+    serial-port-enable = 1
+    ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA7H1kOJ8NtQkf7zu2FBeS3oTIb59DVFWKSvsIj9TvM vigntom@gmail.com"
+  }
+  description = "Instance metadata"
+}
+
 ###cloud vars
 variable "token" {
   type        = string
@@ -50,14 +83,15 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
-
 ###ssh vars
 
+/*
 variable "vms_ssh_root_key" {
   type        = string
   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA7H1kOJ8NtQkf7zu2FBeS3oTIb59DVFWKSvsIj9TvM vigntom@gmail.com"
   description = "ssh-keygen -t ed25519"
 }
+*/
 
 ### image and instance vars 
 
@@ -67,11 +101,13 @@ variable "vm_web_family" {
   description = "https://cloud.yandex.com/en/marketplace?tab=software&categories=os"
 }
 
+/*
 variable "vm_web_name" {
   type    = string
   default = "netology-develop-platform-web"
   description = "Compute instance name"
 }
+*/
 
 variable "vm_web_platform_id" {
   type    = string
@@ -79,6 +115,7 @@ variable "vm_web_platform_id" {
   description = "https://cloud.yandex.com/en/docs/compute/concepts/vm-platforms"
 }
 
+/*
 variable "vm_web_cores" {
   type    = number
   default = 2
@@ -96,6 +133,7 @@ variable "vm_web_core_fraction" {
   default = 5
   description = "https://cloud.yandex.com/en/docs/compute/concepts/performance-levels"
 }
+*/
 
 variable "vm_web_is_preemptable" {
   type    = bool
@@ -103,8 +141,10 @@ variable "vm_web_is_preemptable" {
   description = "https://cloud.yandex.com/en/docs/compute/concepts/preemptible-vm"
 }
 
+/*
 variable "vm_web_root_login" {
   type    = string
   default = "ubuntu"
   description = "Login name"
 }
+*/
