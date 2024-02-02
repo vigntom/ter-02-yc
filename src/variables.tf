@@ -1,3 +1,22 @@
+###project vars
+variable "env" {
+  type = string
+  default = "develop"
+  description = "Name of the environment"
+}
+
+variable "project" {
+  type = string
+  default = "platform"
+  description = "Name of the project"
+}
+
+variable "roles" {
+  type = set(string)
+  default = [ "web", "db" ]
+  description = "Set of available roles"
+}
+
 ###cloud vars
 variable "token" {
   type        = string
